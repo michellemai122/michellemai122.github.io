@@ -93,7 +93,10 @@ export const projects: Project[] = [
       'A scoring layer that normalizes signals into one comparable Momentum Score.',
       'A Flask API and single-page dashboard.',
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/ConsumerSignal' }],
+    links: [
+      { label: 'Live site', href: 'https://consumersignal.onrender.com' },
+      { label: 'GitHub', href: 'https://github.com/michellemai122/ConsumerSignal' },
+    ],
     image: '/shots/consumersignal.jpg',
   },
   {

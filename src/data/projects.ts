@@ -143,7 +143,7 @@ export const projects: Project[] = [
       'MediaPipe finds hip, knee and ankle each frame; the app computes the lowest knee angle and returns feedback.',
       'The pose model loads once when the container starts and the container stays warm, so repeat checks are fast.',
     ],
-    links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/personal-exercise-checker-with-beam-' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/squat-form-checker' }],
     pattern: 'iso',
   },
   {

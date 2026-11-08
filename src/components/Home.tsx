@@ -31,31 +31,27 @@ export function Home() {
   return (
     <>
       <section className="wrap hero">
-        <div className="hero-main">
-          <img className="portrait-sm" src="/me-sm.jpg" alt="Michelle Mai" width="96" height="96" />
-          <p className="eyebrow">Electrical Engineering + Computer Science · Columbia ’27 · New York</p>
-          <h1 className="display">
-            {profile.headline}
-          </h1>
-          <p className="lede">{profile.intro}</p>
-          <Links />
-        </div>
-        <div className="hero-side">
-        <img className="portrait" src="/me.jpg" alt="Michelle Mai" width="800" height="1000" />
-        <aside className="readout" aria-label="Quick facts">
-          <div className="readout-head mono">
-            <span>Right now</span>
+        <div className="identity">
+          <img className="avatar" src="/me-sm.jpg" alt="Michelle Mai" width="88" height="88" />
+          <div>
+            <p className="identity-name">{profile.name}</p>
+            <p className="eyebrow">Electrical Engineering + Computer Science · Columbia ’27 · New York</p>
           </div>
+        </div>
+        <h1 className="display">{profile.headline}</h1>
+        <p className="lede">{profile.intro}</p>
+        <Links />
+        <aside className="now" aria-label="Right now">
+          <span className="now-label">Right now</span>
           <dl>
             {profile.status.map((s) => (
-              <div key={s.k} className="readout-row">
-                <dt className="mono">{s.k}</dt>
+              <div key={s.k}>
+                <dt>{s.k}</dt>
                 <dd>{s.v}</dd>
               </div>
             ))}
           </dl>
         </aside>
-        </div>
       </section>
 
       <section id="about" className="wrap section" aria-labelledby="about-h">

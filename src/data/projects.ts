@@ -17,8 +17,10 @@ export type Project = {
   credit?: string
   links: { label: string; href: string }[]
   pattern: PatternKind
-  /** optional screenshot or figure in /public */
+  /** optional screenshot in /public, used on the card and the project page */
   image?: string
+  /** optional diagram or plot shown only on the project page (fit whole, not cropped) */
+  figure?: string
 }
 
 export const categoryLabel: Record<Category, string> = {

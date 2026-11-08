@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { profile } from './data/profile'
 import { projects } from './data/projects'
+import { labs } from './data/labs'
 import { Home } from './components/Home'
 import { ProjectPage } from './components/ProjectPage'
 
@@ -19,7 +20,7 @@ function useRoute() {
 export function App() {
   const route = useRoute()
   const slug = route.startsWith('/p/') ? route.slice(3) : null
-  const project = slug ? projects.find((p) => p.slug === slug) : undefined
+  const project = slug ? [...projects, ...labs].find((p) => p.slug === slug) : undefined
 
   useEffect(() => {
     if (slug) window.scrollTo(0, 0)

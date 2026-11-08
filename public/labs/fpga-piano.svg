@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1062" font-family="-apple-system, system-ui, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3a3a3c"/></marker>
+    <marker id="o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e06a12"/></marker>
+    <style>
+      .b{fill:#fff;stroke:#c7c7cc;stroke-width:2.5}
+      .ba{fill:#fdf1e7;stroke:#e06a12;stroke-width:3}
+      .t{font-size:30px;font-weight:650;fill:#111113}
+      .s{font-size:22px;fill:#6e6e73}
+      .w{stroke:#3a3a3c;stroke-width:3;fill:none;marker-end:url(#a)}
+      .wo{stroke:#e06a12;stroke-width:4;fill:none;marker-end:url(#o)}
+      .l{font-size:21px;fill:#6e6e73}
+    </style>
+  </defs>
+  <rect width="1700" height="1062" fill="#fbfbfa"/>
+  <text x="80" y="60" font-size="26" font-weight="600" fill="#6e6e73">FPGA piano · data flow (Xilinx, VHDL)</text>
+
+  <!-- clock chain -->
+  <rect class="b" x="80" y="100" width="260" height="110" rx="16"/>
+  <text class="t" x="210" y="152" text-anchor="middle">Board clock</text>
+  <text class="s" x="210" y="184" text-anchor="middle">100 MHz in</text>
+  <rect class="b" x="420" y="100" width="260" height="110" rx="16"/>
+  <text class="t" x="550" y="152" text-anchor="middle">IBUFG → BUFG</text>
+  <text class="s" x="550" y="184" text-anchor="middle">low-skew clock net</text>
+  <rect class="b" x="760" y="100" width="260" height="110" rx="16"/>
+  <text class="t" x="890" y="152" text-anchor="middle">MMCM</text>
+  <text class="s" x="890" y="184" text-anchor="middle">deskewed system clock</text>
+  <rect class="b" x="1100" y="100" width="260" height="110" rx="16"/>
+  <text class="t" x="1230" y="152" text-anchor="middle">LED 0</text>
+  <text class="s" x="1230" y="184" text-anchor="middle">on when clock locks</text>
+  <path class="w" d="M340,155 H414"/>
+  <path class="w" d="M680,155 H754"/>
+  <path class="w" d="M1020,155 H1094"/>
+  <path class="w" d="M890,210 V324"/>
+
+  <!-- audio path -->
+  <rect class="ba" x="760" y="330" width="260" height="110" rx="16"/>
+  <text class="t" x="890" y="382" text-anchor="middle">Divider 1</text>
+  <text class="s" x="890" y="414" text-anchor="middle">1 MHz tick</text>
+  <rect class="ba" x="1100" y="330" width="260" height="110" rx="16"/>
+  <text class="t" x="1230" y="382" text-anchor="middle">Divider 2</text>
+  <text class="s" x="1230" y="414" text-anchor="middle">÷ DIV → note pitch</text>
+  <rect class="ba" x="1440" y="330" width="200" height="110" rx="16"/>
+  <text class="t" x="1540" y="382" text-anchor="middle">Speaker</text>
+  <text class="s" x="1540" y="414" text-anchor="middle">square wave</text>
+  <path class="wo" d="M1020,385 H1094"/>
+  <path class="wo" d="M1360,385 H1434"/>
+
+  <!-- melody + note generator -->
+  <text class="l" x="80" y="545">SW0 = play · PB0 = reset</text>
+  <rect class="b" x="80" y="560" width="320" height="110" rx="16"/>
+  <text class="t" x="240" y="612" text-anchor="middle">Melody counter</text>
+  <text class="s" x="240" y="644" text-anchor="middle">new note every ~0.25 s</text>
+  <rect class="ba" x="760" y="560" width="260" height="110" rx="16"/>
+  <text class="t" x="890" y="612" text-anchor="middle">note_gen</text>
+  <text class="s" x="890" y="644" text-anchor="middle">code → 16-bit divisor</text>
+  <path class="w" d="M400,615 H754"/>
+  <text class="l" x="577" y="600" text-anchor="middle">5-bit note code</text>
+  <path class="wo" d="M1020,615 H1230 V446"/>
+  <text class="l" x="1245" y="560">DIV</text>
+
+  <!-- display -->
+  <rect class="b" x="760" y="800" width="260" height="110" rx="16"/>
+  <text class="t" x="890" y="852" text-anchor="middle">Divider 3</text>
+  <text class="s" x="890" y="884" text-anchor="middle">10 kHz scan tick</text>
+  <rect class="b" x="1100" y="800" width="260" height="110" rx="16"/>
+  <text class="t" x="1230" y="852" text-anchor="middle">Seven-segment</text>
+  <text class="s" x="1230" y="884" text-anchor="middle">shows current note</text>
+  <path class="w" d="M1020,855 H1094"/>
+  <path class="w" d="M240,670 V990 H1230 V916"/>
+  <text class="l" x="600" y="980" text-anchor="middle">same note code</text>
+</svg>

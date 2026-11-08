@@ -57,16 +57,17 @@
   <text class="l" x="1475" y="446" text-anchor="end">notches sweep up and down</text>
 
   <!-- LFO control -->
-  <rect class="ba" x="340" y="650" width="380" height="120" rx="16"/>
-  <text class="t" x="530" y="702" text-anchor="middle">Control (LFO)</text>
-  <text class="s" x="530" y="736" text-anchor="middle">0.5 Hz sine, 6 Vpp + 6 V DC</text>
-  <rect class="ba" x="840" y="650" width="450" height="120" rx="16"/>
-  <text class="t" x="1065" y="702" text-anchor="middle">CD4007 NMOS gates</text>
-  <text class="s" x="1065" y="736" text-anchor="middle">transistor = voltage-controlled resistor</text>
-  <path class="wo" d="M720,710 H834"/>
-  <path class="wo" d="M440,650 V366"/>
-  <path class="wo" d="M690,650 V366" />
-  <path class="wo" d="M940,650 V366"/>
-  <path class="wo" d="M1190,650 V366"/>
-  <text class="l" x="1300" y="630">varies each stage's R</text>
+  <rect class="ba" x="340" y="560" width="950" height="110" rx="16"/>
+  <text class="t" x="815" y="610" text-anchor="middle">CD4007 NMOS transistors, one per stage</text>
+  <text class="s" x="815" y="642" text-anchor="middle">biased in the linear region → voltage-controlled resistor</text>
+  <path class="wo" d="M440,560 V366"/>
+  <path class="wo" d="M690,560 V366"/>
+  <path class="wo" d="M940,560 V366"/>
+  <path class="wo" d="M1190,560 V366"/>
+  <text class="l" x="1175" y="470" text-anchor="end">sweeps each stage's R</text>
+
+  <rect class="ba" x="590" y="740" width="450" height="110" rx="16"/>
+  <text class="t" x="815" y="790" text-anchor="middle">Control (LFO) → gates</text>
+  <text class="s" x="815" y="822" text-anchor="middle">0.5 Hz sine, 6 Vpp + 6 V DC</text>
+  <path class="wo" d="M815,740 V676"/>
 </svg>

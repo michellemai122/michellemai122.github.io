@@ -94,6 +94,17 @@ img { max-width: 100%; display: block; }
 
 /* Exhibition title wall ------------------------------------------------ */
 .hero { padding-top: clamp(40px, 7vw, 88px); padding-bottom: clamp(32px, 5vw, 56px); border-bottom: 1px solid var(--line); }
+.hero-grid { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1fr 260px; gap: 64px; } }
+.portrait-wrap { margin: 0; justify-self: center; width: min(240px, 70vw); }
+.portrait-frame { padding: 10px; }
+.portrait-frame img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.portrait-label { width: 100%; margin-top: 14px; }
+@media (max-width: 899px) {
+  .portrait-wrap { order: -1; justify-self: start; width: 132px; }
+  .portrait-frame { padding: 6px; }
+  .portrait-label { display: none; }
+}
 .identity { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
 .avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex: none; box-shadow: 0 0 0 3px var(--wall), 0 0 0 4px var(--line); }
 .identity-name { margin: 0 0 2px; font-family: var(--serif); font-weight: 600; font-size: 1.5rem; }

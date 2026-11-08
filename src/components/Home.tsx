@@ -9,18 +9,25 @@ export function Home() {
     <>
       {/* Exhibition title wall */}
       <section className="wrap hero">
-        <div className="identity">
-          <img className="avatar" src="/me-sm.jpg" alt="Michelle Mai" width="88" height="88" />
-          <div>
-            <p className="identity-name">{profile.name}</p>
-            <p className="eyebrow">Electrical Engineering + Computer Science · Columbia ’27 · New York</p>
+        <div className="hero-grid">
+          <div className="hero-text">
+            <p className="kicker">Now on view · Ongoing</p>
+            <h1 className="display">Circuits &amp; Intelligence</h1>
+            <p className="display-sub">The work of Michelle Mai, 2024–present</p>
+            <p className="lede">{profile.headline} {profile.intro}</p>
+            <Links />
           </div>
+          <figure className="portrait-wrap">
+            <div className="frame portrait-frame">
+              <img src="/me.jpg" alt="Michelle Mai" width="800" height="1000" />
+            </div>
+            <figcaption className="label portrait-label">
+              <p className="label-title">Michelle Mai</p>
+              <p className="label-artist">Electrical Engineering + Computer Science</p>
+              <p className="label-medium">Columbia ’27 · New York</p>
+            </figcaption>
+          </figure>
         </div>
-        <p className="kicker">Now on view · Ongoing</p>
-        <h1 className="display">Circuits &amp; Intelligence</h1>
-        <p className="display-sub">The work of Michelle Mai, 2024–present</p>
-        <p className="lede">{profile.headline} {profile.intro}</p>
-        <Links />
         <aside className="now" aria-label="Right now">
           <span className="now-label">Visitor information · Right now</span>
           <dl>

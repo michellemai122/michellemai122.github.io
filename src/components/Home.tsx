@@ -32,6 +32,7 @@ export function Home() {
     <>
       <section className="wrap hero">
         <div className="hero-main">
+          <img className="portrait-sm" src="/me-sm.jpg" alt="Michelle Mai" width="96" height="96" />
           <p className="eyebrow">Electrical Engineering + Computer Science · Columbia ’27 · New York</p>
           <h1 className="display">
             {profile.headline}
@@ -39,6 +40,8 @@ export function Home() {
           <p className="lede">{profile.intro}</p>
           <Links />
         </div>
+        <div className="hero-side">
+        <img className="portrait" src="/me.jpg" alt="Michelle Mai" width="800" height="1000" />
         <aside className="readout" aria-label="Quick facts">
           <div className="readout-head mono">
             <span>Right now</span>
@@ -52,6 +55,7 @@ export function Home() {
             ))}
           </dl>
         </aside>
+        </div>
       </section>
 
       <section id="about" className="wrap section" aria-labelledby="about-h">

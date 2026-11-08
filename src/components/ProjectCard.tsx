@@ -1,20 +1,27 @@
 import { categoryLabel, type Project } from '../data/projects'
-import { Pattern } from './Pattern'
 
-export function ProjectCard({ project: p, size = 'square' }: { project: Project; size?: 'square' | 'large' }) {
+export function Readout({ lines }: { lines: string[] }) {
   return (
-    <a href={`#/p/${p.slug}`} className={`card card-${size}`} data-cat={p.category}>
-      <div className="card-art">
-        {p.image ? <img src={p.image} alt="" loading="lazy" /> : <Pattern kind={p.pattern} seed={p.slug} />}
-        {p.status && <span className="badge">{p.status}</span>}
+    <div className="scope" aria-hidden="true">
+      {lines.map((l) => <div key={l} className="scope-line">{l}</div>)}
+    </div>
+  )
+}
+
+export function ProjectCard({ project: p, code }: { project: Project; code: string }) {
+  return (
+    <a href={`#/p/${p.slug}`} className="card" data-cat={p.category}>
+      <div className="card-strip mono">
+        <span>{code}</span>
+        <span>{p.status ?? p.badge ?? p.year}</span>
+      </div>
+      <div className={`card-art${p.imageFit === 'contain' ? ' fit-contain' : ''}`}>
+        {p.image ? <img src={p.image} alt="" loading="lazy" /> : p.readout ? <Readout lines={p.readout} /> : null}
       </div>
       <div className="card-body">
-        <div className="card-meta">
-          <span className="dot" />
-          {categoryLabel[p.category]} · {p.year}
-        </div>
+        <div className="card-meta mono"><span className="dot" />{categoryLabel[p.category]}</div>
         <h3 className="card-title">{p.title}</h3>
-        {size === 'large' && <p className="card-tag">{p.tagline}</p>}
+        <p className="card-tag">{p.tagline}</p>
       </div>
     </a>
   )

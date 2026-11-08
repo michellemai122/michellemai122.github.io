@@ -4,6 +4,7 @@ import { projects } from './data/projects'
 import { labs } from './data/labs'
 import { Home } from './components/Home'
 import { ProjectPage } from './components/ProjectPage'
+import { Links } from './components/Links'
 
 /** Hash routes keep GitHub Pages happy: #/  and  #/p/<slug>  and  #/#section */
 function useRoute() {
@@ -38,26 +39,24 @@ export function App() {
     <>
       <header className="nav">
         <div className="wrap nav-inner">
-          <a href="#/" className="nav-name">{profile.name}</a>
-          <nav aria-label="Sections">
+          <a href="#/" className="nav-name">
+            <span className="nav-dot" aria-hidden="true" />~/michelle-mai
+          </a>
+          <nav aria-label="Sections" className="nav-sections">
+            <a href="#/#about">About</a>
             <a href="#/#work">Work</a>
-            <a href="#/#lab">Lab</a>
+            <a href="#/#writing">Writing</a>
             <a href="#/#experience">Experience</a>
-            <a href={`mailto:${profile.links.email}`}>Contact</a>
           </nav>
+          <Links compact />
         </div>
       </header>
       <main key={slug ?? 'home'} className="page">
         {slug ? project ? <ProjectPage project={project} /> : <NotFound /> : <Home />}
       </main>
       <footer className="wrap footer">
-        <span>© 2026 {profile.name}</span>
-        <span className="footer-links">
-          <a href={profile.links.github}>GitHub</a>
-          <a href={profile.links.linkedin}>LinkedIn</a>
-          <a href={profile.links.substack}>Substack</a>
-          <a href={`mailto:${profile.links.email}`}>Email</a>
-        </span>
+        <span className="mono">© 2026 {profile.name}</span>
+        <Links compact />
       </footer>
     </>
   )
@@ -66,7 +65,7 @@ export function App() {
 function NotFound() {
   return (
     <section className="wrap detail">
-      <a className="back" href="#/">← All work</a>
+      <a className="back mono" href="#/">← all work</a>
       <h1 className="display-sm">That project isn't here.</h1>
     </section>
   )

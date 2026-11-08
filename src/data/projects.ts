@@ -1,5 +1,4 @@
-export type Category = 'software' | 'electrical' | 'startup'
-export type PatternKind = 'map' | 'grid' | 'flow' | 'wave' | 'circuit' | 'radial' | 'iso'
+export type Category = 'software' | 'electrical'
 
 export type Project = {
   slug: string
@@ -16,7 +15,12 @@ export type Project = {
   result?: string
   credit?: string
   links: { label: string; href: string }[]
-  pattern: PatternKind
+  /** short mono lines shown on a scope-style panel when there is no image */
+  readout?: string[]
+  /** small label on the card, e.g. Columbia Startup Studio */
+  badge?: string
+  /** 'contain' for diagrams that must not be cropped */
+  imageFit?: 'cover' | 'contain'
   /** optional screenshot in /public, used on the card and the project page */
   image?: string
   /** optional diagram or plot shown only on the project page (fit whole, not cropped) */
@@ -29,7 +33,6 @@ export type Project = {
 export const categoryLabel: Record<Category, string> = {
   software: 'Software & AI',
   electrical: 'Electrical',
-  startup: 'Startup',
 }
 
 export const projects: Project[] = [
@@ -37,8 +40,9 @@ export const projects: Project[] = [
     slug: 'gable',
     title: 'Gable',
     tagline: 'AI home search for New York. Tell it the place you want.',
-    category: 'startup',
+    category: 'software',
     featured: true,
+    badge: 'Columbia Startup Studio',
     year: '2026',
     role: 'Co-founder, product & engineering',
     stack: ['Next.js', 'TypeScript', 'Tailwind', 'Supabase', 'MapLibre', 'Vercel'],
@@ -51,8 +55,7 @@ export const projects: Project[] = [
     ],
     result: 'Live MVP built in Columbia Startup Studio (Fall 2026).',
     credit: 'Team project with Lookman Mustapha and Sam Hearst.',
-    links: [{ label: 'Live site', href: 'https://gable-one.vercel.app' }],
-    pattern: 'map',
+    links: [{ label: 'Live site', href: 'https://www.gable.fit' }],
     image: '/shots/gable.jpg',
   },
   {
@@ -74,7 +77,7 @@ export const projects: Project[] = [
     ],
     result: 'First prune removed 725 of 1,712 stale rows. Runs unattended on my laptop.',
     links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/job-market-tracker' }],
-    pattern: 'grid',
+    readout: ['57 companies', '~13,000 live postings', 'polled every 10 min', '725 stale rows pruned'],
   },
   {
     slug: 'relay',
@@ -93,7 +96,7 @@ export const projects: Project[] = [
       'Model routing: a small model for routine work, escalating to a larger reasoning model only for low-health or multi-source cases.',
     ],
     links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/relay-ai-customer-success-copilot' }],
-    pattern: 'flow',
+    image: '/shots/relay.jpg',
   },
   {
     slug: 'leaveby',
@@ -113,7 +116,7 @@ export const projects: Project[] = [
       'Planned: an agent that sets a leave-by alarm and moves it as conditions change.',
     ],
     links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/leaveby' }],
-    pattern: 'map',
+    readout: ['status: planning', 'MTA real-time feeds', 'own arrival model', 'agent-set alarm'],
   },
   {
     slug: 'consumer-signal',
@@ -130,7 +133,7 @@ export const projects: Project[] = [
       'A Flask API and single-page dashboard.',
     ],
     links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/ConsumerSignal' }],
-    pattern: 'radial',
+    image: '/shots/consumersignal.jpg',
   },
   {
     slug: 'exercise-checker',
@@ -147,7 +150,7 @@ export const projects: Project[] = [
       'The pose model loads once when the container starts and the container stays warm, so repeat checks are fast.',
     ],
     links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/squat-form-checker' }],
-    pattern: 'iso',
+    readout: ['pose: MediaPipe', 'metric: lowest knee angle', 'runs on: Beam', 'ui: Streamlit'],
   },
   {
     slug: 'alpfa-columbia',
@@ -166,7 +169,6 @@ export const projects: Project[] = [
       { label: 'Live site', href: 'https://michellemai122.github.io/alpfa-columbia-website/' },
       { label: 'GitHub', href: 'https://github.com/michellemai122/alpfa-columbia-website' },
     ],
-    pattern: 'grid',
     image: '/shots/alpfa.jpg',
   },
 ]

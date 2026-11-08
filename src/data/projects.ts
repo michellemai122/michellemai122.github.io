@@ -23,6 +23,7 @@ export type Project = {
   figure?: string
   /** optional full photo shown under the figure on the project page (defaults to image) */
   photo?: string
+  photoAlt?: string
 }
 
 export const categoryLabel: Record<Category, string> = {

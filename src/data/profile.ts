@@ -20,7 +20,8 @@ export const profile = {
   about: [
     'I’m an electrical engineering student at Columbia with a minor in computer science, graduating in May 2027. I like building things end to end, from an op-amp on a breadboard to an LLM agent running in production.',
     'Over the last two summers I built LLM agents at Highroads AI, shipped features in a production React app at CharacterQuilt, and built an AI root-cause analysis tool and a RAG search system at PDI Technologies. I also TA’d Columbia’s CS Design & Innovation Lab. Right now I’m co-building Gable, an AI home search for New York, in Columbia Startup Studio.',
-    'Outside of class I’m co-president of ALPFA Columbia, help run professional development for SHPE, and write about how products compete in the age of AI.',
+    'Mentorship and community building matter a lot to me. I mentor students, and I help run SHPE’s mentor-mentee program, which pairs underclassmen with mentors for academic and career guidance. As co-president of ALPFA Columbia, I organized Pa’lante, a Hispanic Heritage Month showcase that welcomed 108 students, most of them first-years, into Columbia’s Hispanic community. For me it’s about making sure the students coming after me have someone in their corner.',
+    'I also write about how products compete in the age of AI.',
   ],
 }
 

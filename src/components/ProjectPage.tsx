@@ -1,17 +1,15 @@
-import { categoryLabel, type Project } from '../data/projects'
-import { Readout } from './ProjectCard'
+import type { Project } from '../data/projects'
+import { Readout, artistsOf, mediumOf } from './ProjectCard'
 
 export function ProjectPage({ project: p }: { project: Project }) {
+  const gallery = p.category === 'electrical' ? 'Gallery 2 · Works on paper and silicon' : 'Gallery 1 · Software and AI'
+  const backTo = p.category === 'electrical' ? '#/#lab' : '#/#work'
   return (
     <article className="wrap detail" data-cat={p.category}>
-      <a className="back" href="#/#work">← All work</a>
-      <p className="eyebrow mono">
-        <span className="dot" />
-        {categoryLabel[p.category]} · {p.year}
-        {p.badge ? ` · ${p.badge}` : ''}
-        {p.status ? ` · ${p.status}` : ''}
-      </p>
+      <a className="back" href={backTo}>← Back to the collection</a>
+      <p className="kicker">{gallery}</p>
       <h1 className="display-sm">{p.title}</h1>
+      <p className="display-sub">{artistsOf(p)}, {p.year}</p>
       <p className="lede">{p.tagline}</p>
 
       {p.links.length > 0 && (
@@ -26,28 +24,34 @@ export function ProjectPage({ project: p }: { project: Project }) {
 
       {p.figure ? (
         <>
-          <figure className="detail-figure">
+          <figure className={`detail-figure frame${p.category === 'electrical' ? ' frame-paper' : ''}`}>
             <img src={p.figure} alt={`${p.title} diagram`} />
           </figure>
           {p.photo && (
-            <figure className="detail-figure detail-photo">
+            <figure className={`detail-figure detail-photo frame${p.category === 'electrical' ? ' frame-paper' : ''}`}>
               <img src={p.photo} alt={p.photoAlt ?? `${p.title} on the breadboard`} loading="lazy" />
             </figure>
           )}
         </>
       ) : p.image ? (
-        <figure className="detail-figure detail-shot">
+        <figure className="detail-figure detail-shot frame">
           <img src={p.image} alt={`${p.title} screenshot`} />
         </figure>
       ) : p.readout ? (
-        <div className="detail-scope"><Readout lines={p.readout} /></div>
+        <div className="detail-scope frame"><Readout lines={p.readout} /></div>
       ) : null}
 
       <div className="detail-body">
-        <aside className="facts">
-          <div><h4 className="mono">Role</h4><p>{p.role}</p></div>
-          <div><h4 className="mono">Tools</h4><ul className="tags">{p.stack.map((s) => <li key={s} className="mono">{s}</li>)}</ul></div>
-          {p.credit && <div><h4 className="mono">Team</h4><p>{p.credit}</p></div>}
+        <aside className="label label-large">
+          <p className="label-title">{p.title}</p>
+          <p className="label-artist">{artistsOf(p)} · {p.year}</p>
+          <p className="label-medium">{mediumOf(p)}</p>
+          <dl className="label-facts">
+            <div><dt>Role</dt><dd>{p.role}</dd></div>
+            <div><dt>Materials</dt><dd>{p.stack.join(', ')}</dd></div>
+            {p.badge && <div><dt>Collection</dt><dd>{p.badge}</dd></div>}
+            {p.credit && <div><dt>Credit</dt><dd>{p.credit}</dd></div>}
+          </dl>
         </aside>
         <div className="prose">
           <h2>Why</h2>

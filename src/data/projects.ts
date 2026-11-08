@@ -15,6 +15,8 @@ export type Project = {
   result?: string
   credit?: string
   links: { label: string; href: string }[]
+  /** names for the wall label's artist line (defaults to Michelle Mai) */
+  artists?: string
   /** one-line result shown on the card */
   highlight?: string
   /** short mono lines shown on a scope-style panel when there is no image */
@@ -40,6 +42,7 @@ export const categoryLabel: Record<Category, string> = {
 export const projects: Project[] = [
   {
     slug: 'gable',
+    artists: 'Michelle Mai, with Lookman Mustapha and Sam Hearst',
     highlight: 'Live MVP at gable.fit',
     title: 'Gable',
     tagline: 'AI home search for New York. Tell it the place you want.',

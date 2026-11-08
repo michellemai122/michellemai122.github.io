@@ -44,7 +44,8 @@ export function App() {
           </a>
           <nav aria-label="Sections" className="nav-sections">
             <a href="#/#about">About</a>
-            <a href="#/#work">Work</a>
+            <a href="#/#work">Software</a>
+            <a href="#/#lab">Electrical</a>
             <a href="#/#writing">Writing</a>
             <a href="#/#experience">Experience</a>
           </nav>
@@ -65,7 +66,7 @@ export function App() {
 function NotFound() {
   return (
     <section className="wrap detail">
-      <a className="back" href="#/">← All work</a>
+      <a className="back" href="#/">← Back to the collection</a>
       <h1 className="display-sm">That project isn't here.</h1>
     </section>
   )

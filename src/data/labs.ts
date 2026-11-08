@@ -229,6 +229,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'circuit-foundations',
+    artists: 'Michelle Mai, Miriam Trujillo and Victoria Allen',
     highlight: 'Measured β ≈ 200 and 12 ns gate delays',
     title: 'Device Foundations: Diodes, BJTs, Logic Gates',
     tagline: 'The measurements everything else builds on: diode circuits, transistor curves, and how fast and how noise-proof real logic gates are.',

@@ -50,11 +50,16 @@ export function ProjectPage({ project: p }: { project: Project }) {
           {p.credit && <div><h4 className="mono">Team</h4><p>{p.credit}</p></div>}
         </aside>
         <div className="prose">
-          <h2>The problem</h2>
+          <h2>Why</h2>
           <p>{p.problem}</p>
           <h2>What I built</h2>
           <ul>{p.built.map((b) => <li key={b}>{b}</li>)}</ul>
-          {p.result && (<><h2>Result</h2><p>{p.result}</p></>)}
+          {(p.result || p.highlight) && (
+            <>
+              <h2>Impact</h2>
+              <p>{p.result ?? p.highlight}</p>
+            </>
+          )}
         </div>
       </div>
     </article>

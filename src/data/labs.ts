@@ -7,6 +7,7 @@ import type { Project } from './projects'
 export const labs: Project[] = [
   {
     slug: 'fpga-piano',
+    highlight: 'Played the full melody on the board; TA signed off',
     title: 'FPGA Piano',
     tagline: 'A Xilinx FPGA that you can play like a keyboard, then one that plays "Twinkle Twinkle Little Star" on its own, written in VHDL.',
     category: 'electrical',
@@ -31,6 +32,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'frequency-counter',
+    highlight: 'Reads an input’s frequency in pulses per second',
     title: '555 Frequency Counter',
     tagline: 'A breadboard frequency counter: a 555 timer opens a 1-second window, a counter tallies the pulses, a seven-segment display shows the count.',
     category: 'electrical',
@@ -54,6 +56,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'phaser',
+    highlight: 'Working pedal effect, with a demo video',
     title: 'Guitar Phaser',
     tagline: 'An analog phaser effect, like a guitar pedal: four op-amp all-pass filters swept by MOSFET resistors give music a "swooshing" sound.',
     category: 'electrical',
@@ -77,6 +80,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'op-amp-characterization',
+    highlight: 'LF356 came closest to ideal of three chips tested',
     title: 'Op-Amp Limits & Active Filter',
     tagline: 'Measured where real op-amps stop acting ideal, then showed it in a Sallen-Key filter across three chips: LM741, LF411 and LF356.',
     category: 'electrical',
@@ -101,6 +105,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'mosfet-amplifiers',
+    highlight: 'LTspice matched hand calculations to 3 decimals',
     title: 'MOSFET Amplifiers, Designed to Spec',
     tagline: 'Three single-transistor amplifiers designed by hand and checked in LTspice, plus the hunt for a missing half of the gain.',
     category: 'electrical',
@@ -125,6 +130,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'adc-voltmeter',
+    highlight: 'Every reading within 5 counts of expected',
     title: 'Digital Voltmeter & Aliasing',
     tagline: 'Built a two-digit voltmeter from an 8-bit ADC, then ran signals through an ADC and DAC to watch aliasing appear at the Nyquist frequency.',
     category: 'electrical',
@@ -149,6 +155,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'transmission-lines',
+    highlight: 'Measured reflections matched predicted Γ',
     title: 'Transmission Line Reflections',
     tagline: 'Sent fast edges down 50 ft of coax and read the echoes: how open, matched, resistive and capacitive endings bounce a signal back.',
     category: 'electrical',
@@ -173,6 +180,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'mosfet-power-stage',
+    highlight: 'A 25 mA op-amp driving a 20 Ω load at full swing',
     title: 'MOSFET Power Stage & Track-and-Hold',
     tagline: 'Used MOSFETs as switches and as muscle: a chopper, a track-and-hold, and a push-pull stage that lets a weak op-amp drive a 20 Ω load.',
     category: 'electrical',
@@ -197,6 +205,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'am-radio-matlab',
+    highlight: 'Voice recovered intact through an 8 kHz carrier',
     title: 'AM Radio in MATLAB',
     tagline: 'Modulated a real voice recording onto a carrier, watched its spectrum move, demodulated it back, and found where it breaks.',
     category: 'electrical',
@@ -220,6 +229,7 @@ export const labs: Project[] = [
   },
   {
     slug: 'circuit-foundations',
+    highlight: 'Measured β ≈ 200 and 12 ns gate delays',
     title: 'Device Foundations: Diodes, BJTs, Logic Gates',
     tagline: 'The measurements everything else builds on: diode circuits, transistor curves, and how fast and how noise-proof real logic gates are.',
     category: 'electrical',

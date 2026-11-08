@@ -22,6 +22,7 @@ export function ProjectCard({ project: p, code }: { project: Project; code: stri
         <div className="card-meta mono"><span className="dot" />{categoryLabel[p.category]}</div>
         <h3 className="card-title">{p.title}</h3>
         <p className="card-tag">{p.tagline}</p>
+        {p.highlight && <p className="card-highlight">↗ {p.highlight}</p>}
       </div>
     </a>
   )

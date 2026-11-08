@@ -15,6 +15,8 @@ export type Project = {
   result?: string
   credit?: string
   links: { label: string; href: string }[]
+  /** one-line result shown on the card */
+  highlight?: string
   /** short mono lines shown on a scope-style panel when there is no image */
   readout?: string[]
   /** small label on the card, e.g. Columbia Startup Studio */
@@ -38,6 +40,7 @@ export const categoryLabel: Record<Category, string> = {
 export const projects: Project[] = [
   {
     slug: 'gable',
+    highlight: 'Live MVP at gable.fit',
     title: 'Gable',
     tagline: 'AI home search for New York. Tell it the place you want.',
     category: 'software',
@@ -55,11 +58,15 @@ export const projects: Project[] = [
     ],
     result: 'Live MVP built in Columbia Startup Studio (Fall 2026).',
     credit: 'Team project with Lookman Mustapha and Sam Hearst.',
-    links: [{ label: 'Live site', href: 'https://www.gable.fit' }],
+    links: [
+      { label: 'Live site', href: 'https://www.gable.fit' },
+      { label: 'GitHub', href: 'https://github.com/sam-hearst/gable' },
+    ],
     image: '/shots/gable.jpg',
   },
   {
     slug: 'job-market-tracker',
+    highlight: 'Auto-pruned 725 of 1,712 stale rows on its first run',
     title: 'Job Market Tracker',
     tagline: 'Polls 57 companies every 10 minutes and finds new-grad roles before the job boards do.',
     category: 'software',
@@ -81,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'consumer-signal',
+    highlight: '25 startups scored on a live dashboard',
     title: 'ConsumerSignal',
     tagline: 'Ranks 25 consumer/AI startups by a 0–100 momentum score from live search and news signals.',
     category: 'software',
@@ -101,6 +109,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'alpfa-columbia',
+    highlight: 'Live chapter site that officers update without code',
     title: 'ALPFA Columbia Website',
     tagline: 'The chapter site I built as co-president, ported from our Canva prototype.',
     category: 'software',

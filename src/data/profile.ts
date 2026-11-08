@@ -25,7 +25,15 @@ export const profile = {
   ],
 }
 
-export type Post = { title: string; date: string; href: string; blurb: string }
+export const skills: { group: string; items: string[] }[] = [
+  { group: 'Languages', items: ['Python', 'TypeScript', 'JavaScript', 'Java', 'SQL', 'VHDL', 'MATLAB'] },
+  { group: 'AI', items: ['LLM agents', 'Evaluation loops', 'DSPy', 'RAG', 'Embeddings', 'FAISS'] },
+  { group: 'Web & cloud', items: ['React', 'Next.js', 'Tailwind', 'Flask', 'Supabase', 'Azure Functions', 'Vercel', 'Git'] },
+  { group: 'Hardware', items: ['Oscilloscopes', 'LTspice', 'Xilinx FPGAs', 'Op-amp & MOSFET design', 'Breadboarding'] },
+  { group: 'Product', items: ['User research', 'Roadmapping', 'Figma', 'Agile', 'Design thinking'] },
+]
+
+export type Post ={ title: string; date: string; href: string; blurb: string }
 
 export const posts: Post[] = [
   {

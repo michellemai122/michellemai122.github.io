@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { experience, posts, profile } from '../data/profile'
+import { experience, posts, profile, skills } from '../data/profile'
 import { categoryLabel, projects, type Category } from '../data/projects'
 import { labs } from '../data/labs'
 import { ProjectCard } from './ProjectCard'
@@ -58,6 +58,18 @@ export function Home() {
         <SectionHead n="01" id="about-h" title="About" />
         <div className="about">
           {profile.about.map((para) => <p key={para.slice(0, 24)}>{para}</p>)}
+        </div>
+      </section>
+
+      <section id="skills" className="wrap section" aria-labelledby="skills-h">
+        <SectionHead id="skills-h" title="Skills" />
+        <div className="skills">
+          {skills.map((g) => (
+            <div key={g.group} className="skill-group">
+              <h3>{g.group}</h3>
+              <ul>{g.items.map((s) => <li key={s}>{s}</li>)}</ul>
+            </div>
+          ))}
         </div>
       </section>
 

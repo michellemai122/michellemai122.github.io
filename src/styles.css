@@ -215,13 +215,22 @@ img { max-width: 100%; display: block; }
 
 /* Experience ---------------------------------------------------------- */
 .exp { list-style: none; margin: 0; padding: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
-.exp-row { display: grid; gap: 4px 24px; grid-template-columns: 1fr; padding: 16px 18px; border-bottom: 1px dashed var(--line); }
+.exp-row { padding: 20px 20px 22px; border-bottom: 1px dashed var(--line); }
 .exp-row:last-child { border-bottom: 0; }
-@media (min-width: 720px) { .exp-row { grid-template-columns: 190px 1fr auto; } }
-.exp-org { font-family: var(--head); font-weight: 600; }
-.exp-role { font-weight: 500; }
-.exp-role p { margin: 4px 0 0; color: var(--muted); font-weight: 400; font-size: 0.9375rem; }
+.exp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 14px; }
+.exp-org { font-family: var(--head); font-weight: 600; font-size: 1.125rem; letter-spacing: -0.01em; }
+.exp-role { color: var(--muted); font-size: 0.9375rem; margin-top: 2px; }
 .exp-when { color: var(--muted); font-size: 0.8125rem; white-space: nowrap; }
+.exp-log { margin: 0; display: grid; gap: 10px; }
+.exp-log > div { display: grid; grid-template-columns: 1fr; gap: 2px; }
+@media (min-width: 720px) { .exp-log > div { grid-template-columns: 76px 1fr; gap: 16px; } }
+.exp-log dt { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; padding-top: 3px; }
+.exp-log dd { margin: 0; font-size: 0.9375rem; line-height: 1.6; max-width: 72ch; }
+.exp-log ul { margin: 0; padding-left: 1.1em; }
+.exp-log li { margin-bottom: 4px; }
+.exp-log li::marker { color: var(--accent); }
+.exp-impact dt { color: var(--accent); }
+.exp-impact dd { font-weight: 500; }
 
 /* Project page -------------------------------------------------------- */
 .detail { padding-top: 28px; padding-bottom: 48px; }

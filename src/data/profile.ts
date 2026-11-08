@@ -41,37 +41,73 @@ export const posts: Post[] = [
   },
 ]
 
-export type Job = { org: string; role: string; when: string; note: string }
+export type Job = {
+  org: string
+  role: string
+  when: string
+  /** the problem or reason the work existed */
+  why: string
+  /** what I built, technically */
+  built: string[]
+  /** what changed because of it */
+  impact: string
+}
 
 export const experience: Job[] = [
   {
     org: 'CharacterQuilt',
     role: 'Software Development Intern',
     when: 'Jul – Sep 2026',
-    note: '7 merged PRs in a production React/TypeScript app; redesigned the AI agent chat panel.',
+    why: 'An early-stage AI product where the co-founder’s design feedback needed to become shipped features, and the team’s AI agent chat had grown hard to follow.',
+    built: [
+      'Shipped features in the production React/TypeScript app: live previews of AI-generated assets, a reorganized task workspace and a voice-review flow.',
+      'Redesigned the AI agent chat panel around “delete more than you add”: separate chat histories, a newest-first chat switcher, one-line run summaries and a reasoning log without repeated lines.',
+      'Built the data architecture for an autonomous support workflow that stores customer and product context for the AI assistant.',
+    ],
+    impact: 'The AI assistant can answer product questions while the team is offline, and the workspace redesign merged with 185 focused and integration tests passing.',
   },
   {
     org: 'Highroads AI',
     role: 'AI Engineering Intern',
     when: 'Jun – Jul 2026',
-    note: 'LLM agents that extract structured CLO deal data, with eval loops and DSPy-optimized prompts.',
+    why: 'Reviewing a CLO deal meant reading long, unstructured documents by hand, which took hours per deal.',
+    built: [
+      'Built autonomous LLM agents in Python that run the end-to-end CLO deal workflow and extract structured deal data from unstructured documents.',
+      'Designed evaluation loops that score agent output against ground-truth deal data, and iterated on DSPy-optimized prompts to raise accuracy.',
+    ],
+    impact: 'Eliminated hours of manual review per deal; presented the results to both co-founders.',
   },
   {
     org: 'Columbia University',
     role: 'TA, CS Design & Innovation Lab',
     when: 'Jan – May 2026',
-    note: 'Guided 5–8 student teams through the full product lifecycle.',
+    why: 'Student teams building a product for the first time needed someone to guide them from idea to working prototype.',
+    built: [
+      'Directed 5–8 cross-functional teams through the full product lifecycle using agile and design thinking.',
+      'Coached teams on product strategy, technical implementation and narrative framing.',
+    ],
+    impact: 'Teams improved the usability of their products and how they presented them.',
   },
   {
     org: 'PDI Technologies',
     role: 'Software Developer Intern',
     when: 'Jun – Jul 2025',
-    note: 'AI root-cause analysis tool and a RAG semantic search system (Azure Functions, FAISS).',
+    why: 'Engineers spent too long tracing the root cause of operational issues across scattered internal data.',
+    built: [
+      'Led an AI-powered root-cause analysis product across 4 engineering teams, from requirements and roadmap to a demo for ~50 executives.',
+      'Architected and deployed a RAG semantic search system (Python, Azure Functions, OpenAI embeddings, FAISS) over internal datasets for a 20+ person operations team.',
+    ],
+    impact: 'Cut investigation time by 95% and drove $2.88M in annual operational value.',
   },
   {
-    org: 'ERA',
+    org: 'ERA (Entrepreneurs Roundtable Accelerator)',
     role: 'Product Manager Intern',
     when: 'Jan – May 2025',
-    note: 'Product strategy for three early-stage startups.',
+    why: 'Three early-stage startups (ClaiAI, Roz, Overwatch Health) needed help deciding what to build and who to build it for.',
+    built: [
+      'Advised on product strategy, UX and growth.',
+      'Synthesized user research and data into customer personas.',
+    ],
+    impact: 'Shaped product direction and go-to-market decisions, and drove improvements in acquisition, retention and revenue forecasting.',
   },
 ]

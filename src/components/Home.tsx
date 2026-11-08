@@ -111,9 +111,21 @@ export function Home() {
         <ol className="exp">
           {experience.map((j) => (
             <li key={j.org + j.when} className="exp-row">
-              <div className="exp-org">{j.org}</div>
-              <div className="exp-role">{j.role}<p>{j.note}</p></div>
-              <div className="exp-when mono">{j.when}</div>
+              <div className="exp-head">
+                <div>
+                  <div className="exp-org">{j.org}</div>
+                  <div className="exp-role">{j.role}</div>
+                </div>
+                <div className="exp-when mono">{j.when}</div>
+              </div>
+              <dl className="exp-log">
+                <div><dt className="mono">why</dt><dd>{j.why}</dd></div>
+                <div>
+                  <dt className="mono">built</dt>
+                  <dd><ul>{j.built.map((b) => <li key={b}>{b}</li>)}</ul></dd>
+                </div>
+                <div className="exp-impact"><dt className="mono">impact</dt><dd>{j.impact}</dd></div>
+              </dl>
             </li>
           ))}
         </ol>

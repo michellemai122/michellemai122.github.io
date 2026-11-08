@@ -24,9 +24,9 @@ export function ProjectPage({ project: p }: { project: Project }) {
           <figure className="detail-figure">
             <img src={p.figure} alt={`${p.title} diagram`} />
           </figure>
-          {(p.photo ?? p.image) && (
+          {p.photo && (
             <figure className="detail-figure detail-photo">
-              <img src={p.photo ?? p.image} alt={p.photoAlt ?? `${p.title} on the breadboard`} loading="lazy" />
+              <img src={p.photo}alt={p.photoAlt ?? `${p.title} on the breadboard`} loading="lazy" />
             </figure>
           )}
         </>

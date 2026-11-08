@@ -8,15 +8,16 @@ export const labs: Project[] = [
   {
     slug: 'fpga-piano',
     title: 'FPGA Piano',
-    tagline: 'A Xilinx FPGA that plays "Twinkle Twinkle Little Star" on a speaker, written from scratch in VHDL.',
+    tagline: 'A Xilinx FPGA that you can play like a keyboard, then one that plays "Twinkle Twinkle Little Star" on its own, written in VHDL.',
     category: 'electrical',
     year: '2025',
-    role: 'Digital Systems Lab (ELEN E3082), Lab 6',
+    role: 'Digital Systems Lab (ELEN E3082), Labs 5–6',
     stack: ['VHDL', 'Xilinx FPGA', 'MMCM clocking', 'Clock dividers', 'Seven-segment display'],
     problem:
       'Turn a single 100 MHz board clock into musical pitches, step through a melody on a timer, and show the note being played, all in hardware.',
     built: [
-      'Clocking: the board clock goes through IBUFG/BUFG buffers into an MMCM; LED 0 turns on when the clock locks, so you know the clock network is stable before anything else runs.',
+      'Part 1, a playable keyboard (Lab 5): seven switches pick C through B (one-hot input decoded to a 4-bit note code), push-buttons add sharp, flat and octave, and the note shows on the display. The pitch comes from a clock divider, f_out = f_clk / (2 · DIV).',
+      'Part 2, the auto-player (Lab 6). Clocking: the board clock goes through IBUFG/BUFG buffers into an MMCM; LED 0 turns on when the clock locks, so you know the clock network is stable before anything else runs.',
       'Pitch from division: one reusable clock-divider module, used three times. A 1 MHz tick feeds a second divider whose 16-bit divisor comes from note_gen, so changing the divisor changes the pitch.',
       'Melody: a counter that only runs while switch 0 is on, cut into ~0.25 s windows (25 million cycles), each mapped to the next note; after the last note it outputs silence until reset.',
       'Display: a 10 kHz scan tick drives the seven-segment display with the same note code, so the board shows the note it is playing.',
@@ -49,6 +50,7 @@ export const labs: Project[] = [
     pattern: 'wave',
     image: '/labs/555-board.jpg',
     figure: '/labs/555-schematic.jpg',
+    photo: '/labs/555-board.jpg',
   },
   {
     slug: 'phaser',
@@ -222,5 +224,27 @@ export const labs: Project[] = [
     figure: '/labs/am-figure.jpg',
     photo: '/labs/am-sweep.jpg',
     photoAlt: 'Carrier sweep: original, modulated and recovered voice signals compared in MATLAB',
+  },
+  {
+    slug: 'circuit-foundations',
+    title: 'Device Foundations: Diodes, BJTs, Logic Gates',
+    tagline: 'The measurements everything else builds on: diode circuits, transistor curves, and how fast and how noise-proof real logic gates are.',
+    category: 'electrical',
+    year: '2025',
+    role: 'Electronic Circuits Labs 1–2 (ELEN E3083) and Digital Systems Lab 1 (ELEN E3082)',
+    stack: ['Silicon and germanium diodes', 'BJT', 'Logic gates (74HC00)', 'Oscilloscope XY mode', 'LTspice'],
+    problem:
+      'Before designing with a device you have to know how it really behaves. Measure the key curves and numbers for diodes, transistors and logic gates, then put each one to work.',
+    built: [
+      'Diodes: built a homemade curve tracer to plot I–V curves, then a half-wave rectifier, peak detectors (47 µF into 1 kΩ vs 100 Ω loads), an op-amp precision rectifier, a limiter, a clamp and a voltage doubler, and simulated the last three in LTspice.',
+      'BJTs: measured collector current against V_CE for base currents of 20, 30 and 40 µA. The curves flatten above about 0.4 V (the active region) at roughly 4, 6 and 7.9 mA, which gives a current gain of β ≈ 200.',
+      'Logic gates: used the scope’s XY mode to plot DC transfer curves and read noise margins (0.85 V low, 3.02 V high), then measured propagation delay at a 66 pF load (12.4 ns low-to-high, 28.4 ns high-to-low).',
+    ],
+    result: 'A measured reference for each device, used throughout the later amplifier, filter and digital labs.',
+    credit: 'Lab partners: Miriam Trujillo (and Victoria Allen in Digital Systems Lab 1).',
+    links: [],
+    pattern: 'iso',
+    image: '/labs/foundations-card.jpg',
+    figure: '/labs/foundations.jpg',
   },
 ]

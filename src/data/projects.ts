@@ -80,25 +80,6 @@ export const projects: Project[] = [
     readout: ['57 companies', '~13,000 live postings', 'polled every 10 min', '725 stale rows pruned'],
   },
   {
-    slug: 'relay',
-    title: 'Relay',
-    tagline: 'An AI customer-success copilot that explains churn risk and drafts the fix, behind human approval.',
-    category: 'software',
-    featured: true,
-    year: '2026',
-    role: 'Solo',
-    stack: ['Next.js', 'FastAPI', 'Pydantic', 'Multi-agent orchestration'],
-    problem:
-      'Customer-success managers learn an account is in trouble too late. Usage, sentiment, support tickets and renewal dates live in different tools, and health scores say what changed but not why.',
-    built: [
-      'An orchestrator that runs four specialists: data analysis (deterministic, no LLM arithmetic), churn reasoning, action recommendation and outreach drafting.',
-      'Every churn driver cites the evidence it came from, and emails and tasks only run after explicit human approval.',
-      'Model routing: a small model for routine work, escalating to a larger reasoning model only for low-health or multi-source cases.',
-    ],
-    links: [{ label: 'GitHub', href: 'https://github.com/michellemai122/relay-ai-customer-success-copilot' }],
-    image: '/shots/relay.jpg',
-  },
-  {
     slug: 'consumer-signal',
     title: 'ConsumerSignal',
     tagline: 'Ranks 25 consumer/AI startups by a 0–100 momentum score from live search and news signals.',

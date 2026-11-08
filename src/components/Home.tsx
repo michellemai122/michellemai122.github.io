@@ -32,19 +32,16 @@ export function Home() {
     <>
       <section className="wrap hero">
         <div className="hero-main">
-          <p className="eyebrow mono">// EE + CS · Columbia ’27 · New York</p>
+          <p className="eyebrow">Electrical Engineering + Computer Science · Columbia ’27 · New York</p>
           <h1 className="display">
-            <span className="prompt" aria-hidden="true">&gt;</span>
             {profile.headline}
-            <span className="cursor" aria-hidden="true" />
           </h1>
           <p className="lede">{profile.intro}</p>
           <Links />
         </div>
         <aside className="readout" aria-label="Quick facts">
           <div className="readout-head mono">
-            <span>STATUS</span>
-            <span className="live"><span className="nav-dot" />live</span>
+            <span>Right now</span>
           </div>
           <dl>
             {profile.status.map((s) => (
@@ -134,10 +131,9 @@ export function Home() {
   )
 }
 
-function SectionHead({ n, id, title }: { n: string; id: string; title: string }) {
+function SectionHead({ id, title }: { n?: string; id: string; title: string }) {
   return (
     <div className="section-head">
-      <span className="section-n mono">{n} /</span>
       <h2 id={id} className="section-h">{title}</h2>
     </div>
   )

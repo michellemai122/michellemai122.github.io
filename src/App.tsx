@@ -40,7 +40,7 @@ export function App() {
       <header className="nav">
         <div className="wrap nav-inner">
           <a href="#/" className="nav-name">
-            <span className="nav-dot" aria-hidden="true" />~/michelle-mai
+            Michelle Mai
           </a>
           <nav aria-label="Sections" className="nav-sections">
             <a href="#/#about">About</a>
@@ -65,7 +65,7 @@ export function App() {
 function NotFound() {
   return (
     <section className="wrap detail">
-      <a className="back mono" href="#/">← all work</a>
+      <a className="back" href="#/">← All work</a>
       <h1 className="display-sm">That project isn't here.</h1>
     </section>
   )

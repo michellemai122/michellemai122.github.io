@@ -4,7 +4,7 @@ import { Readout } from './ProjectCard'
 export function ProjectPage({ project: p }: { project: Project }) {
   return (
     <article className="wrap detail" data-cat={p.category}>
-      <a className="back mono" href="#/#work">← all work</a>
+      <a className="back" href="#/#work">← All work</a>
       <p className="eyebrow mono">
         <span className="dot" />
         {categoryLabel[p.category]} · {p.year}

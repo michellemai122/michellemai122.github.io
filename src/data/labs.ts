@@ -199,4 +199,28 @@ export const labs: Project[] = [
     photo: '/labs/mosfet-trackhold.jpg',
     photoAlt: 'Track-and-hold on the scope: the held output (green) steps along the input sine',
   },
+  {
+    slug: 'am-radio-matlab',
+    title: 'AM Radio in MATLAB',
+    tagline: 'Modulated a real voice recording onto a carrier, watched its spectrum move, demodulated it back, and found where it breaks.',
+    category: 'electrical',
+    year: '2024',
+    role: 'Signals & Systems Lab (ELEN E3084), Lab 3',
+    stack: ['MATLAB', 'Fourier transform / spectra', 'Amplitude modulation', 'Audio processing'],
+    problem:
+      'AM radio works by sliding audio up to a high carrier frequency and back down at the receiver. Show it on real audio, and find how high the carrier must be for the voice to survive the round trip.',
+    built: [
+      'Started with test signals: a 40 Hz carrier and a 0.5 Hz message gave peaks at 40 Hz with sidebands at 39.5 and 40.5 Hz, and shorter pulses gave wider spectra (the time-bandwidth trade-off).',
+      'Modulated a voice clip whose energy spans about ±4 kHz onto an 8 kHz carrier: the spectrum split into two copies centered at ±8 kHz, each with an upper and a lower sideband.',
+      'Demodulated it back down: the spectrum returned to ±4 kHz, the audio sounded like the original, and the two spectra matched.',
+      'Swept the carrier (200 Hz, 4 kHz, 8 kHz). Once the carrier drops below the voice’s bandwidth, the shifted copies overlap and the recovered audio is garbled.',
+    ],
+    result: 'Working AM modulate-demodulate chain on real speech, checked by ear and by spectrum.',
+    links: [],
+    pattern: 'wave',
+    image: '/labs/am-card.jpg',
+    figure: '/labs/am-figure.jpg',
+    photo: '/labs/am-sweep.jpg',
+    photoAlt: 'Carrier sweep: original, modulated and recovered voice signals compared in MATLAB',
+  },
 ]

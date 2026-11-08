@@ -171,6 +171,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) { .detail-art { aspect-ratio: 4 / 3; } }
 .detail-figure { margin: 40px 0 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: #fbfbfa; }
 .detail-figure img { width: 100%; height: auto; max-height: 78vh; object-fit: contain; background: #fff; }
+.detail-photo { margin-top: 16px; }
+.detail-photo img { object-fit: cover; background: none; }
 .detail-body { display: grid; gap: 32px; margin-top: 48px; grid-template-columns: 1fr; }
 @media (min-width: 860px) { .detail-body { grid-template-columns: 240px 1fr; gap: 64px; } }
 .facts { display: flex; flex-direction: column; gap: 22px; }

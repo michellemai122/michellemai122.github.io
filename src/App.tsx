@@ -24,7 +24,10 @@ export function App() {
 
   useEffect(() => {
     if (slug) window.scrollTo(0, 0)
-    else if (route.startsWith('/#')) document.getElementById(route.slice(2))?.scrollIntoView()
+    else if (route.startsWith('/#')) {
+      const calm = document.hidden || matchMedia('(prefers-reduced-motion: reduce)').matches
+      document.getElementById(route.slice(2))?.scrollIntoView({ behavior: calm ? 'instant' : 'smooth' })
+    }
   }, [route, slug])
 
   useEffect(() => {

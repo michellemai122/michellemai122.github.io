@@ -50,4 +50,28 @@ export const labs: Project[] = [
     image: '/labs/555-board.jpg',
     figure: '/labs/555-schematic.jpg',
   },
+  {
+    slug: 'phaser',
+    title: 'Guitar Phaser',
+    tagline: 'An analog phaser effect, like a guitar pedal: four op-amp all-pass filters swept by MOSFET resistors give music a "swooshing" sound.',
+    category: 'electrical',
+    year: '2025',
+    role: 'Electronic Circuits Lab (ELEN E3083), final project',
+    stack: ['Op-amp all-pass filters', 'CD4007 MOSFETs', 'Summing amplifier', 'Function generator', 'Oscilloscope'],
+    problem:
+      'Build the effect inside phaser pedals like the MXR Phase 90 from op-amps and transistors: sweep the phase of an audio signal and mix it with the original so frequencies cancel and reinforce in a moving pattern.',
+    built: [
+      'Four identical op-amp all-pass filters in a row. Each one shifts the phase of the signal without changing its loudness.',
+      'A MOSFET from a CD4007 across one resistor in each filter, biased in its linear region so it acts as a voltage-controlled resistor.',
+      'A slow control signal (0.5 Hz sine, 6 Vpp plus a 6 V DC offset) on the MOSFET gates, so every stage’s critical frequency sweeps up and down together.',
+      'A summing amplifier that adds the original signal to the phase-shifted one, then a power amp and speaker. Where the two are out of phase they cancel, and those notches sweep through the audio.',
+      'Tested with a sine wave first (it just gets louder and softer), then with music, which gives the swooshing effect. On the scope we saw the bottom of the waveform clipping when the speaker was driven hard.',
+    ],
+    result: 'Working phaser on the breadboard, with a video of it playing through the speaker.',
+    links: [{ label: 'Demo video', href: 'https://www.youtube.com/watch?v=T2McliXgMRA' }],
+    pattern: 'wave',
+    image: '/labs/phaser-card.jpg',
+    figure: '/labs/phaser.svg',
+    photo: '/labs/phaser-board.jpg',
+  },
 ]

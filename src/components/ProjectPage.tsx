@@ -20,9 +20,16 @@ export function ProjectPage({ project: p }: { project: Project }) {
       )}
 
       {p.figure ? (
-        <figure className="detail-figure">
-          <img src={p.figure} alt={`${p.title} diagram`} />
-        </figure>
+        <>
+          <figure className="detail-figure">
+            <img src={p.figure} alt={`${p.title} diagram`} />
+          </figure>
+          {(p.photo ?? p.image) && (
+            <figure className="detail-figure detail-photo">
+              <img src={p.photo ?? p.image} alt={`${p.title} on the breadboard`} loading="lazy" />
+            </figure>
+          )}
+        </>
       ) : (
         <div className="detail-art">
           {p.image ? <img src={p.image} alt={`${p.title} screenshot`} /> : <Pattern kind={p.pattern} seed={p.slug} />}

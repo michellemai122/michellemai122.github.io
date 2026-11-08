@@ -21,6 +21,8 @@ export type Project = {
   image?: string
   /** optional diagram or plot shown only on the project page (fit whole, not cropped) */
   figure?: string
+  /** optional full photo shown under the figure on the project page (defaults to image) */
+  photo?: string
 }
 
 export const categoryLabel: Record<Category, string> = {

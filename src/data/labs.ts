@@ -99,4 +99,29 @@ export const labs: Project[] = [
     figure: '/labs/opamp-filter.jpg',
     photo: '/labs/opamp-scope.jpg',
   },
+  {
+    slug: 'mosfet-amplifiers',
+    title: 'MOSFET Amplifiers, Designed to Spec',
+    tagline: 'Three single-transistor amplifiers designed by hand and checked in LTspice, plus the hunt for a missing half of the gain.',
+    category: 'electrical',
+    year: '2025',
+    role: 'Electronic Circuits Lab (ELEN E3083), Lab 4',
+    stack: ['PMOS / NMOS (IRF5210, IRF520, CD4007)', 'Small-signal analysis', 'LTspice', 'Oscilloscope', 'E96 resistor selection'],
+    problem:
+      'Design each amplifier from a spec instead of a given schematic: set the bias current to exactly 1 mA, hit a target gain, keep the transistor in saturation, and use resistors that actually exist.',
+    built: [
+      'PMOS common-source amplifier (gain of at least 5 V/V at 1 mA): solved the DC operating point from the device model (V_SG = 3.81 V), sized R_S ≈ 11.2 kΩ (nearest E96: 11.3 kΩ), and confirmed saturation with V_SD = 18.75 V.',
+      'LTspice matched the hand calculations to three decimals (V_SG 3.8115 V vs 3.8116 V, V_SD 18.7495 V vs 18.749 V, I_D exactly 1 mA). Swapping in the resistors the lab actually had pushed the current to about 1.2 mA.',
+      'NMOS common-source amplifier: designed for −4 V/V; simulation gave −3.3 V/V, and the gap traced back to V_GS (3.7 V simulated vs 4.04 V expected).',
+      'NMOS source follower (target gain 0.8 V/V): the DC values matched exactly, but the gain came out at 0.4. We ruled out g_m and the bias current, then showed the result fits a hidden ~10 Ω resistance in parallel with the load. Raising R_L to 40–56 Ω brings the gain back to 0.8.',
+    ],
+    result:
+      'All three designs hit their DC targets in simulation, the PMOS amplifier was built and measured on the bench, and the source-follower investigation pinned the gain loss on parasitic resistance (wiring, the MOSFET source region or probe loading).',
+    credit: 'Lab partner: Miriam Trujillo.',
+    links: [],
+    pattern: 'circuit',
+    image: '/labs/amp-card.jpg',
+    figure: '/labs/amp-design.jpg',
+    photo: '/labs/amp-board.jpg',
+  },
 ]

@@ -2,8 +2,8 @@ import type { Project } from '../data/projects'
 import { Readout, artistsOf, mediumOf } from './ProjectCard'
 
 export function ProjectPage({ project: p }: { project: Project }) {
-  const gallery = p.category === 'electrical' ? 'Gallery 2 · Works on paper and silicon' : 'Gallery 1 · Software and AI'
-  const backTo = p.category === 'electrical' ? '#/#lab' : '#/#work'
+  const gallery = p.category === 'electrical' ? 'Electrical engineering' : 'Software and AI'
+  const backTo = p.category === 'electrical' ? '#/#lab' : '#/#software'
   return (
     <article className="wrap detail" data-cat={p.category}>
       <a className="back" href={backTo}>← Back to the collection</a>

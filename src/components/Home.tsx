@@ -1,10 +1,37 @@
+import { useEffect, useState } from 'react'
 import { experience, posts, profile, skills } from '../data/profile'
-import { projects } from '../data/projects'
+import { projects, type Category } from '../data/projects'
 import { labs } from '../data/labs'
 import { ProjectCard } from './ProjectCard'
 import { Links } from './Links'
 
+type Filter = 'all' | Category
+const filters: Filter[] = ['all', 'software', 'electrical']
+const all = [...projects, ...labs]
+const count = (f: Filter) => (f === 'all' ? all.length : all.filter((p) => p.category === f).length)
+const blurb: Record<Filter, string> = {
+  all: 'Software and AI products, plus electrical engineering from my Columbia labs.',
+  software: 'AI products, data tools and websites I have built and shipped.',
+  electrical: 'From my Columbia labs: analog circuits, digital systems, signals and devices.',
+}
+
+/** #/#software and #/#lab open the collection already filtered. */
+function filterFromHash(): Filter | null {
+  const h = window.location.hash
+  if (h === '#/#lab') return 'electrical'
+  if (h === '#/#software') return 'software'
+  return null
+}
+
 export function Home() {
+  const [filter, setFilter] = useState<Filter>(() => filterFromHash() ?? 'all')
+  useEffect(() => {
+    const on = () => { const f = filterFromHash(); if (f) setFilter(f) }
+    window.addEventListener('hashchange', on)
+    return () => window.removeEventListener('hashchange', on)
+  }, [])
+  const shown = filter === 'all' ? all : all.filter((p) => p.category === filter)
+
   return (
     <>
       {/* Exhibition title wall */}
@@ -61,17 +88,22 @@ export function Home() {
       </section>
 
       <section id="work" className="wrap section" aria-labelledby="work-h">
-        <SectionHead kicker="Gallery 1" id="work-h" title="Software and AI" />
-        <div className="gallery">
-          {projects.map((p) => <ProjectCard key={p.slug} project={p} />)}
+        <span id="software" className="anchor" />
+        <span id="lab" className="anchor" />
+        <div className="section-top">
+          <SectionHead kicker="Collection" id="work-h" title="Projects" />
+          <div className="tabs" role="group" aria-label="Filter projects">
+            {filters.map((f) => (
+              <button key={f} className="tab" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                {f === 'all' ? 'All' : f === 'software' ? 'Software and AI' : 'Electrical engineering'}
+                <span className="tab-n">{count(f)}</span>
+              </button>
+            ))}
+          </div>
         </div>
-      </section>
-
-      <section id="lab" className="wrap section" aria-labelledby="lab-h">
-        <SectionHead kicker="Gallery 2" id="lab-h" title="Works on paper and silicon" />
-        <p className="section-sub">Electrical engineering from my Columbia labs: analog circuits, digital systems, signals and devices.</p>
+        <p className="section-sub">{blurb[filter]}</p>
         <div className="gallery">
-          {labs.map((p) => <ProjectCard key={p.slug} project={p} />)}
+          {shown.map((p) => <ProjectCard key={p.slug} project={p} />)}
         </div>
       </section>
 

@@ -12,7 +12,7 @@ export const profile = {
   },
   /** short readout shown beside the hero */
   status: [
-    { k: 'looking for', v: 'Full-time SWE, AI & forward-deployed engineering roles, starting 2027' },
+    { k: 'looking for', v: 'New-grad roles starting summer 2027 in software, AI, product or forward-deployed engineering, building products on the latest AI' },
     { k: 'building', v: 'Gable, AI home search for NYC' },
     { k: 'writing', v: 'Product teardowns on Substack' },
   ],

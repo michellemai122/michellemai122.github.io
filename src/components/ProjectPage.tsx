@@ -1,15 +1,15 @@
 import type { Project } from '../data/projects'
-import { Readout, artistsOf, mediumOf } from './ProjectCard'
+import { Readout, mediumOf } from './ProjectCard'
 
 export function ProjectPage({ project: p }: { project: Project }) {
   const gallery = p.category === 'electrical' ? 'Electrical engineering' : 'Software and AI'
   const backTo = p.category === 'electrical' ? '#/#lab' : '#/#software'
   return (
     <article className="wrap detail" data-cat={p.category}>
-      <a className="back" href={backTo}>← Back to the collection</a>
+      <a className="back" href={backTo}>← All projects</a>
       <p className="kicker">{gallery}</p>
       <h1 className="display-sm">{p.title}</h1>
-      <p className="display-sub">{artistsOf(p)}, {p.year}</p>
+      <p className="display-sub">{p.role}, {p.year}</p>
       <p className="lede">{p.tagline}</p>
 
       {p.links.length > 0 && (
@@ -44,13 +44,13 @@ export function ProjectPage({ project: p }: { project: Project }) {
       <div className="detail-body">
         <aside className="label label-large">
           <p className="label-title">{p.title}</p>
-          <p className="label-artist">{artistsOf(p)} · {p.year}</p>
+          <p className="label-artist">{p.year}</p>
           <p className="label-medium">{mediumOf(p)}</p>
           <dl className="label-facts">
             <div><dt>Role</dt><dd>{p.role}</dd></div>
-            <div><dt>Materials</dt><dd>{p.stack.join(', ')}</dd></div>
-            {p.badge && <div><dt>Collection</dt><dd>{p.badge}</dd></div>}
-            {p.credit && <div><dt>Credit</dt><dd>{p.credit}</dd></div>}
+            <div><dt>Tech</dt><dd>{p.stack.join(', ')}</dd></div>
+            {p.badge && <div><dt>Program</dt><dd>{p.badge}</dd></div>}
+            {p.credit && <div><dt>Team</dt><dd>{p.credit}</dd></div>}
           </dl>
         </aside>
         <div className="prose">

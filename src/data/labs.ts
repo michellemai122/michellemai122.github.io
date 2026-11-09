@@ -7,7 +7,7 @@ import type { Project } from './projects'
 export const labs: Project[] = [
   {
     slug: 'fpga-piano',
-    highlight: 'Played the full melody on the board; TA signed off',
+    highlight: 'Plays the full melody on the board',
     title: 'FPGA Piano',
     tagline: 'A Xilinx FPGA that you can play like a keyboard, then one that plays "Twinkle Twinkle Little Star" on its own, written in VHDL.',
     category: 'electrical',

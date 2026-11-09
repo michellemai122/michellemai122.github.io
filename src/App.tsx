@@ -32,7 +32,7 @@ export function App() {
   }, [route, slug])
 
   useEffect(() => {
-    document.title = project ? `${project.title} · ${profile.name}` : `${profile.name} · Engineer`
+    document.title = project ? `${project.title} · ${profile.name}` : `${profile.name} · Software, AI & Electrical Engineering`
   }, [project])
 
   return (
@@ -44,10 +44,10 @@ export function App() {
           </a>
           <nav aria-label="Sections" className="nav-sections">
             <a href="#/#about">About</a>
+            <a href="#/#experience">Experience</a>
             <a href="#/#software">Software</a>
             <a href="#/#lab">Electrical</a>
             <a href="#/#writing">Writing</a>
-            <a href="#/#experience">Experience</a>
           </nav>
           <Links compact />
         </div>
@@ -66,7 +66,7 @@ export function App() {
 function NotFound() {
   return (
     <section className="wrap detail">
-      <a className="back" href="#/">← Back to the collection</a>
+      <a className="back" href="#/">← Back to home</a>
       <h1 className="display-sm">That project isn't here.</h1>
     </section>
   )

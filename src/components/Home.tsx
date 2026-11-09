@@ -38,10 +38,10 @@ export function Home() {
       <section className="wrap hero">
         <div className="hero-grid">
           <div className="hero-text">
-            <p className="kicker">Now on view · Ongoing</p>
-            <h1 className="display">Circuits &amp; Intelligence</h1>
-            <p className="display-sub">The work of Michelle Mai, 2024–present</p>
-            <p className="lede">{profile.headline} {profile.intro}</p>
+            <p className="kicker">Columbia Engineering · Class of 2027</p>
+            <h1 className="display">Michelle Mai</h1>
+            <p className="display-sub">{profile.headline}</p>
+            <p className="lede">{profile.intro}</p>
             <Links />
           </div>
           <figure className="portrait-wrap">
@@ -49,14 +49,14 @@ export function Home() {
               <img src="/me.jpg" alt="Michelle Mai" width="800" height="1000" />
             </div>
             <figcaption className="label portrait-label">
-              <p className="label-title">Michelle Mai</p>
-              <p className="label-artist">Electrical Engineering + Computer Science</p>
-              <p className="label-medium">Columbia ’27 · New York</p>
+              <p className="label-title">B.S. Electrical Engineering</p>
+              <p className="label-artist">Minor in Computer Science</p>
+              <p className="label-medium">Columbia University · May 2027 · New York</p>
             </figcaption>
           </figure>
         </div>
         <aside className="now" aria-label="Right now">
-          <span className="now-label">Visitor information · Right now</span>
+          <span className="now-label">Right now</span>
           <dl>
             {profile.status.map((s) => (
               <div key={s.k}>
@@ -69,69 +69,15 @@ export function Home() {
       </section>
 
       <section id="about" className="wrap section" aria-labelledby="about-h">
-        <SectionHead kicker="Wall text" id="about-h" title="About the artist" />
+        <SectionHead id="about-h" title="About" />
         <div className="about">
           {profile.about.map((para) => <p key={para.slice(0, 24)}>{para}</p>)}
         </div>
       </section>
 
-      <section id="skills" className="wrap section" aria-labelledby="skills-h">
-        <SectionHead kicker="Materials and techniques" id="skills-h" title="Skills" />
-        <div className="skills">
-          {skills.map((g) => (
-            <div key={g.group} className="skill-group">
-              <h3>{g.group}</h3>
-              <p>{g.items.join(' · ')}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="work" className="wrap section" aria-labelledby="work-h">
-        <span id="software" className="anchor" />
-        <span id="lab" className="anchor" />
-        <div className="section-top">
-          <SectionHead kicker="Collection" id="work-h" title="Projects" />
-          <div className="tabs" role="group" aria-label="Filter projects">
-            {filters.map((f) => (
-              <button key={f} className="tab" aria-pressed={filter === f} onClick={() => setFilter(f)}>
-                {f === 'all' ? 'All' : f === 'software' ? 'Software and AI' : 'Electrical engineering'}
-                <span className="tab-n">{count(f)}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-        <p className="section-sub">{blurb[filter]}</p>
-        <div className="gallery">
-          {shown.map((p) => <ProjectCard key={p.slug} project={p} />)}
-        </div>
-      </section>
-
-      <section id="writing" className="wrap section" aria-labelledby="writing-h">
-        <div className="section-top">
-          <SectionHead kicker="Publications" id="writing-h" title="Writing" />
-          <a className="btn" href={profile.links.substack} target="_blank" rel="noreferrer">All posts on Substack ↗</a>
-        </div>
-        <p className="section-sub">Product teardowns: how products can compete in the age of AI, from first principles.</p>
-        <ol className="posts">
-          {posts.map((p) => (
-            <li key={p.href}>
-              <a className="post" href={p.href} target="_blank" rel="noreferrer">
-                <span className="post-date">{p.date}</span>
-                <span className="post-body">
-                  <span className="post-title">{p.title}</span>
-                  <span className="post-blurb">{p.blurb}</span>
-                </span>
-                <span className="post-go" aria-hidden="true">Read ↗</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </section>
-
       <section id="experience" className="wrap section" aria-labelledby="exp-h">
         <div className="section-top">
-          <SectionHead kicker="Provenance" id="exp-h" title="Experience" />
+          <SectionHead id="exp-h" title="Experience" />
           <a className="btn btn-accent" href={profile.resume} target="_blank" rel="noreferrer">Resume (PDF) ↗</a>
         </div>
         <ol className="exp">
@@ -156,14 +102,68 @@ export function Home() {
           ))}
         </ol>
       </section>
+
+      <section id="work" className="wrap section" aria-labelledby="work-h">
+        <span id="software" className="anchor" />
+        <span id="lab" className="anchor" />
+        <div className="section-top">
+          <SectionHead id="work-h" title="Projects" />
+          <div className="tabs" role="group" aria-label="Filter projects">
+            {filters.map((f) => (
+              <button key={f} className="tab" aria-pressed={filter === f} onClick={() => setFilter(f)}>
+                {f === 'all' ? 'All' : f === 'software' ? 'Software and AI' : 'Electrical engineering'}
+                <span className="tab-n">{count(f)}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="section-sub">{blurb[filter]}</p>
+        <div className="gallery">
+          {shown.map((p) => <ProjectCard key={p.slug} project={p} />)}
+        </div>
+      </section>
+
+      <section id="skills" className="wrap section" aria-labelledby="skills-h">
+        <SectionHead id="skills-h" title="Skills" />
+        <div className="skills">
+          {skills.map((g) => (
+            <div key={g.group} className="skill-group">
+              <h3>{g.group}</h3>
+              <p>{g.items.join(' · ')}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="writing" className="wrap section" aria-labelledby="writing-h">
+        <div className="section-top">
+          <SectionHead id="writing-h" title="Writing" />
+          <a className="btn" href={profile.links.substack} target="_blank" rel="noreferrer">All posts on Substack ↗</a>
+        </div>
+        <p className="section-sub">Product teardowns: how products can compete in the age of AI, from first principles.</p>
+        <ol className="posts">
+          {posts.map((p) => (
+            <li key={p.href}>
+              <a className="post" href={p.href} target="_blank" rel="noreferrer">
+                <span className="post-date">{p.date}</span>
+                <span className="post-body">
+                  <span className="post-title">{p.title}</span>
+                  <span className="post-blurb">{p.blurb}</span>
+                </span>
+                <span className="post-go" aria-hidden="true">Read ↗</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </section>
     </>
   )
 }
 
-function SectionHead({ kicker, id, title }: { kicker: string; id: string; title: string }) {
+function SectionHead({ kicker, id, title }: { kicker?: string; id: string; title: string }) {
   return (
     <div className="section-head">
-      <p className="kicker">{kicker}</p>
+      {kicker && <p className="kicker">{kicker}</p>}
       <h2 id={id} className="section-h">{title}</h2>
     </div>
   )

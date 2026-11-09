@@ -12,10 +12,9 @@ export const profile = {
   },
   /** short readout shown beside the hero */
   status: [
-    { k: 'studying', v: 'EE + CS @ Columbia, May 2027' },
+    { k: 'looking for', v: 'Full-time SWE, AI & forward-deployed engineering roles, starting 2027' },
     { k: 'building', v: 'Gable, AI home search for NYC' },
     { k: 'writing', v: 'Product teardowns on Substack' },
-    { k: 'looking for', v: 'New-grad SWE, AI & forward-deployed roles' },
   ],
   about: [
     'I’m an electrical engineering student at Columbia with a minor in computer science, graduating in May 2027. I like building things end to end, from an op-amp on a breadboard to an LLM agent running in production.',
@@ -73,7 +72,7 @@ export const experience: Job[] = [
       'Redesigned the AI agent chat panel around “delete more than you add”: separate chat histories, a newest-first chat switcher, one-line run summaries and a reasoning log without repeated lines.',
       'Built the data architecture for an autonomous support workflow that stores customer and product context for the AI assistant.',
     ],
-    impact: 'The AI assistant can answer product questions while the team is offline, and the workspace redesign merged with 185 focused and integration tests passing.',
+    impact: 'The workspace redesign merged into production, and the AI assistant can answer customer product questions while the team is offline.',
   },
   {
     org: 'Highroads AI',

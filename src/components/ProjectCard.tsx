@@ -31,7 +31,7 @@ export function ProjectCard({ project: p }: { project: Project; code?: string })
       </div>
       <div className="label">
         <p className="label-title">{p.title}</p>
-        <p className="label-artist">{artistsOf(p)} · {p.year}</p>
+        <p className="label-artist">{p.role} · {p.year}</p>
         <p className="label-medium">{mediumOf(p)}</p>
         <p className="label-desc">{p.tagline}</p>
         {p.highlight && <p className="label-note">{p.highlight}</p>}
